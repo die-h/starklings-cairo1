@@ -8,10 +8,12 @@
 // to future exercises!)
 
 use debug::PrintTrait;
+use traits::Into;
 
 fn main() {
     let original_price = 51_u32;
-    sale_price(original_price).print();
+    
+    sale_price(original_price).into().print();
 }
 
 fn sale_price(price: u32) -> u32{
