@@ -40,12 +40,17 @@ fn display_grades(student: @Student, index: usize) {
     //       Otherwise, print "No grade".
     // 
 
-    if course.is_some() {
-    course.unwrap().print();
-    display_grades(student, index + 1_usize);
-    } else {
-        ('No grade').print();
+    match course {
+        Option::Some(_) => {
+            display_grades(student, index + 1_usize);
+        },
+        Option::None(()) => {
+            ('No grade').print();
+        }
     }
+    if course.is_some() {
+        course.unwrap().print();
+    } else {}
 }
 
 
